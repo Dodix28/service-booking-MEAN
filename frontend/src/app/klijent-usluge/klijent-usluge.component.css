@@ -1,0 +1,118 @@
+/*------------------------------------- TABELA -------------------------------*/
+
+table {
+  width: 100%;
+  min-width: 500px;
+  max-width: 700px;
+  margin: 1.5rem auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  background-color: #FAF6F0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Zaglavlje */
+th {
+ background-color: rgb(102 80 89);
+  color: rgb(220,220,220);
+  text-align: left;
+  font-weight: 600;
+  padding: 10px 12px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+
+  font-family: 'Montserrat',serif;
+}
+
+
+td {
+  padding: 10px 14px;
+  background-color: #ffffffcc; 
+  color: #2C1810;
+  font-size: 0.95rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+td a{
+  cursor: pointer;
+}
+
+th{
+  border-left: 1px solid rgba(45, 12, 53, 0.5);
+}
+td{
+  border-left: 1px solid rgba(45, 12, 53, 0.5);
+  font-family: 'Montserrat', sans-serif;;
+}
+td a:link{
+  text-decoration: none; 
+
+}
+td a:visited{
+  color: #6a6a6a;
+}
+
+/*===========================================================*/
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pretraga{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/*============================KARTICE==========================*/
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.info-card {
+  position: relative;
+  width: 300px;
+  height: 150px;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.info-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.50);
+}
+
+.card-content {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: #fff;
+  z-index: 2;
+}
+.card-content h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}

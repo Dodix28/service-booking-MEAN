@@ -1,0 +1,139 @@
+
+
+
+<!--<h5 style="text-align: left;">Svi KOZMETICARI</h5>-->
+
+<table>
+  <tr>
+    <th>Ime</th>
+    <th>Prezime</th>
+    <th>Korisnicko ime</th>
+    <th>Mejl</th>
+    <th>Pol</th>
+    <th>Kontakt</th>
+    <th>Adresa</th>
+    <th>Slika</th>
+  </tr>
+  <tr *ngFor="let g of prikazaniKozmeticari">
+    <td>{{g.ime}}</td>
+    <td>{{g.prezime}}</td>
+    <td>{{g.kor_ime}}</td>
+    <td>{{g.mejl}}</td>
+    <td>{{g.pol}}</td>
+    <td>{{g.kontakt}}</td>
+    <td>{{g.adresa}}</td>
+    <td><img [src]=" 'http://localhost:4000/uploads/' +g.profilna" height="100px" width="100px" alt="Profilna"></td>
+  </tr>
+</table>
+
+<!-- Pagination komponenta -->
+<app-tabela [sviPodaci]="sviKozmeticari"
+                (promenjeniPodaci)="prikazaniKozmeticari = $event">
+</app-tabela>
+
+<hr/>
+
+<h5>Azuriraj informacije korisnika </h5>
+
+<div >
+  <div class="azurirajLevo">
+    <div class="search">
+      Username: <input type="text" name="kor_ime" [(ngModel)]="kor_ime" placeholder="Unesi korisničko ime korisnika ">
+    <button (click)="findUser()">Prosledi</button>
+    <span class="greska">{{poruka1}}</span>
+    </div>
+
+    <div class="tabelaAzurirajInfo">
+      <table *ngIf="prikaziTabelu === true">
+        <tr>
+          <th>Ime</th>
+          <td>{{korisnikAzuriranje.ime}}</td>
+        </tr>
+        <tr>
+          <th>Prezime</th>
+          <td>{{korisnikAzuriranje.prezime}}</td>
+        </tr>
+
+        <tr>
+          <th>Mejl</th>
+          <td>{{korisnikAzuriranje.mejl}}</td>
+        </tr>
+        <tr>
+          <th>Pol</th>
+          <td>{{korisnikAzuriranje.pol}}</td>
+        </tr>
+        <tr>
+          <th>Adresa</th>
+          <td>{{korisnikAzuriranje.adresa}}</td>
+        </tr>
+        <tr>
+          <th>Kontakt</th>
+          <td>{{korisnikAzuriranje.kontakt}}</td>
+        </tr>
+        <tr>
+          <th>Profilna</th>
+          <td>
+            <img [src]=" 'http://localhost:4000/uploads/' +korisnikAzuriranje.profilna" height="100px" width="100px" alt="Profilna">
+          </td>
+        </tr>
+        <tr>
+          <th></th>
+          <td><button (click)="toggleAzuriranjePodataka()" *ngIf="prikaziFormuZaAzuriranje === false">Azuriraj Podatke</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+  <div class="tabelaAzuriraj">
+    <table *ngIf="prikaziFormuZaAzuriranje === true">
+      <tr>
+        <th>Ime</th>
+        <td><input type="text" name="ime" placeholder="Ime" [(ngModel)]="ime"></td>
+      </tr>
+      <tr>
+        <th>Prezime</th>
+        <td><input type="text" name="prezime" placeholder="Prezime" [(ngModel)]="prezime"></td>
+      </tr>
+
+      <tr>
+        <th>Mejl</th>
+        <td><input type="text" name="mejl" placeholder="Mejl" [(ngModel)]="mejl"></td>
+      </tr>
+      <tr>
+        <th>Pol</th>
+        <td>
+          <select [(ngModel)]="pol" name="Pol">
+            <option value="M"> M </option>
+            <option value="Z"> Z </option>
+          </select><br/>
+        </td>
+      </tr>
+      <tr>
+        <th>Adresa</th>
+        <td><input type="text" name="adresa" placeholder="Adresa" [(ngModel)]="adresa"></td>
+      </tr>
+      <tr>
+        <th>Kontakt</th>
+        <td><input type="text" name="kontakt" placeholder="Kontakt" [(ngModel)]="kontakt"></td>
+      </tr>
+      <tr>
+        <th>Profilna</th>
+        <td>
+          <input type="file" id="image" (change)="selectFile($event)" name="image"  accept=".png, .jpg">
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td>
+          <button (click)="azuriraj()">Ažuriraj</button>
+        </td>
+      </tr>
+    </table>
+    <span class="greska">{{poruka}}</span>
+    <span class="greska">{{porukaKontakt}}</span>
+    <span class="greska">{{porukaMejl}}</span>
+
+  </div>
+
+</div>

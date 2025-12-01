@@ -1,0 +1,29 @@
+
+.azuriranje{
+  background-color: rgba(245, 245, 245, 0.9);
+  border-radius: 8px;
+  width:40%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-left:10px;
+  margin-right:10px;
+  padding-top:15px;
+  padding-bottom:15px;
+
+  min-width:350px;
+}
+
+.profilInfo button{
+  width:100%;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

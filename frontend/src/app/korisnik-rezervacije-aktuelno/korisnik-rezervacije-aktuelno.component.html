@@ -1,0 +1,32 @@
+<h5>SVE MOJE AKTUELNE REZERVACIJE</h5>
+<table>
+  <tr>
+    <!--<th>IDR</th>-->
+    <th>Datum</th>
+    <th>Vreme</th>
+    <th>Cena</th>
+    <th>Napomena</th>
+    <!--<th>Klijent</th>-->
+    <th>Kozmetičar</th>
+    <th>Status</th>
+    <!--<th>UslugaID</th>-->
+    <th>Tretman</th>
+  </tr>
+  <tr *ngFor="let r of prikazaneRezervacije">
+    <!--<td>{{r.idR}}</td>-->
+    <td>{{r.datumZakazivanja}}</td>
+    <td>{{r.vreme}}</td>
+    <td>{{r.cena}}</td>
+    <td>{{r.napomena}}</td>
+    <!--<td>{{r.klijent}}</td>-->
+    <td>{{r.kozmeticar}}</td>
+    <td>{{r.status}}</td>
+    <!--<td>{{r.idPU}}</td>-->
+    <td>{{r.nazivPodusluge}}</td>
+  </tr>
+</table>
+
+  <!-- Pagination komponenta -->
+<app-tabela [sviPodaci]="aktuelneRezervacije"
+                (promenjeniPodaci)="prikazaneRezervacije = $event">
+</app-tabela>

@@ -1,0 +1,179 @@
+
+<header class="main-header" *ngIf="ulogovan">
+  <nav>
+    <ul class="nav-links">
+      <li><a routerLink="/">Početna</a></li>
+      <li><a routerLink="/usluge">Usluge</a></li>
+      <li><a routerLink="/kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container_usluga">
+
+  <h5>{{selectedUsluga.naziv}}</h5>
+
+  <div class="div_ispod">
+    <div class="galerija">
+      <div *ngFor="let g of selectedUsluga.galerija" class="galerija-item">
+        <img [src]="'http://localhost:4000/uploads/podusluge/' + g" alt="Slika usluge">
+      </div>
+    </div>
+
+    <div class="overlay">
+      <div class="opis-overlay">
+        <p>{{selectedUsluga.opis}}</p>
+        <button class="pogledaj-btn">Pogledaj galeriju</button>
+      </div>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="tabelaTretmana">
+    <h6>Tretmani & Cene</h6>
+    <div *ngFor="let u of selectedUsluga.podusluge" class="tretman">
+      <div class="asortiman">
+        <!--<div class="usluga"> 🌸 &nbsp;{{u.idPU}} </div> &nbsp;-->
+        <div class="usluga">🌸 {{u.naziv}}</div>
+        <div class="linija"></div>
+        <div class="cena">{{u.cena}}</div>
+      </div>
+      <div class="podusluge">
+        <div >{{u.opis}} </div>
+      </div>
+    </div>
+  </div>
+
+  <br/>
+   <br/>
+
+  <button class="pogledaj-btn" (click)="toggle_prikaziFormu() ;">Zakažite svoj termin 🌸</button>
+
+
+  <hr/>
+
+
+  <div class="stepsContainer" id="formaDiv" *ngIf="prikaziFormu_zaZakazivanje">
+    <h5 class="zakazivanje">Zakažite termin kod kozmetičara</h5>
+
+    <mat-horizontal-stepper [linear]="true" #stepper>
+
+      <!-- KORAK 1 -->
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Osnovni podaci</ng-template>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Odaberite datum</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="datum" readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Odaberite vreme</mat-label>
+            <mat-select formControlName="vreme">
+              <mat-option *ngFor="let t of vremena" [value]="t">
+                {{ t }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-radio-group formControlName="tipUsluge">
+            <mat-radio-button *ngFor="let g of selectedUsluga.podusluge" [value]="g">
+              {{ g.naziv }}
+            </mat-radio-button>
+          </mat-radio-group>
+
+          <div class="step-buttons">
+            <button mat-button matStepperNext>Sledeći</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!-- KORAK 2 -->
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Dodatni zahtevi</ng-template>
+
+          <mat-radio-group formControlName="odabirKozmeticara" (change)="onKozmeticarChange($event)" >
+            <mat-radio-button *ngFor="let g of selectedUsluga.kozmeticari" [value]="g">
+              {{ g.ime }} {{ g.prezime }}
+            </mat-radio-button>
+          </mat-radio-group>
+
+           <!-- Ako izabrani termin nije dostupan termina -->
+          <div *ngIf="terminZauzetFlag" class="nema-termina">
+            Termin koji ste izabrali kod ovog  kozmetičara je zauzet.
+            Možete izabrati drugog kozmetičara ili drugi termin. 🌸
+          </div>
+
+          <mat-form-field appearance="fill" *ngIf="terminZauzetFlag">
+            <mat-label>Dostupni termini za kozmetičara {{ izabraniKozmeticar?.ime }} , dana {{ firstFormGroup.controls['datum'].value | date }}:</mat-label>
+            <mat-select formControlName="vreme">
+              <mat-option *ngFor="let t of dostupniTermini" [value]="t">
+                {{ t }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- Ispod prikaz termina -->
+          <!--<div *ngIf="dostupniTermini && dostupniTermini.length > 0" class="vremena-container">
+            <h5>Dostupni termini za {{ izabraniKozmeticar?.ime }} , dana {{ firstFormGroup.controls['datum'].value | date }}:</h5>
+
+            <mat-radio-group formControlName="odabirTermina">
+              <mat-radio-button *ngFor="let t of dostupniTermini" [value]="t">
+                {{ t }}
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>-->
+
+
+
+          <mat-form-field appearance="fill">
+            <mat-label>Specijalni zahtevi / napomene</mat-label>
+            <textarea matInput formControlName="dodatniZahtevi"></textarea>
+          </mat-form-field>
+
+          <div class="step-buttons">
+            <button mat-button matStepperPrevious>Prethodni</button>
+            <button mat-button matStepperNext>Sledeći</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <!-- KORAK 3 -->
+      <mat-step>
+        <ng-template matStepLabel>Pregled i potvrda</ng-template>
+
+        <div class="review">
+          <strong>Datum:</strong> {{ firstFormGroup.controls['datum'].value | date }}<br>
+          <span *ngIf="!terminZauzetFlag"><strong>Vreme:</strong> {{ firstFormGroup.controls['vreme'].value }}<br></span>
+          <span *ngIf="terminZauzetFlag"><strong>Vreme:</strong> {{ secondFormGroup.controls['vreme'].value }}<br></span>
+          <strong>Tip usluge:</strong> {{ firstFormGroup.controls['tipUsluge'].value?.naziv }}<br>
+          <strong>Kozmetičar:</strong>
+          {{
+            secondFormGroup.controls['odabirKozmeticara'].value?.ime
+          }}
+          {{
+            secondFormGroup.controls['odabirKozmeticara'].value?.prezime
+          }}<br>
+          <strong>Dodatni zahtevi:</strong> {{ secondFormGroup.controls['dodatniZahtevi'].value }}
+        </div>
+
+        <div class="step-buttons">
+          <button mat-button matStepperPrevious>Prethodni</button>
+          <button mat-button (click)="potvrdiTermin()">Potvrdi</button>
+        </div>
+      </mat-step>
+
+    </mat-horizontal-stepper>
+  </div>
+
+
+
+</div>
+
+
+

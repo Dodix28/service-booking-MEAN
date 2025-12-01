@@ -1,0 +1,44 @@
+
+
+  <!--<h5 style="text-align: left;">Lista zahteva klijenata:</h5>-->
+  <table>
+    <tr>
+      <th>Ime</th>
+      <th>Prezime&nbsp;&nbsp;</th>
+      <th>Kor_ime&nbsp;&nbsp;</th>
+      <th>Tip</th>
+      <th>Mejl&nbsp;</th>
+      <th>Pol</th>
+      <th>Adresa&nbsp;</th>
+      <th>Kontakt</th>
+      <th>Profilna</th>
+      <!--<th>Kartica</th>-->
+      <th>Status</th>
+      <th>Prihvati</th>
+      <th>Odbij</th>
+    </tr>
+    <tr *ngFor="let z of prikazaniZahtevi">
+      <td>{{z.ime}}</td>
+      <td>{{z.prezime}}</td>
+      <td>{{z.kor_ime}}</td>
+      <td>{{z.tip}}</td>
+      <td>{{z.mejl}}</td>
+      <td>{{z.pol}}</td>
+      <td>{{z.adresa}}</td>
+      <td>{{z.kontakt}}</td>
+      <td>
+        <div>
+          <img [src]=" 'http://localhost:4000/uploads/' + z.profilna" height="80px" width="80px" alt="Opis slike">
+        </div>
+      </td>
+      <!--<td>{{z.brKartice}}</td>-->
+      <td>{{z.status}}</td>
+      <td><button (click)="prihvati(z)">Prihvati</button></td>
+      <td><button (click)="odbij(z)">Odbij</button></td>
+    </tr>
+  </table>
+
+  <!-- Pagination komponenta -->
+<app-tabela [sviPodaci]="zahtevi"
+                (promenjeniPodaci)="prikazaniZahtevi = $event">
+</app-tabela>

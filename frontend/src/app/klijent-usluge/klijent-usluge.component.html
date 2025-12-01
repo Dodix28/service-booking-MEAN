@@ -1,0 +1,59 @@
+
+<div class="container">
+
+  <div class="dashboard">
+    <a class="info-card" (click)="posetiUslugu(usluga.idU)" routerLink="/usluga" [style.background-image]="'url(http://localhost:4000/uploads/usluge/' + usluga.slika + ')'" *ngFor="let usluga of sveUsluge">
+      <div class="overlay"></div>
+      <div class="card-content">
+        <h3>{{usluga.naziv}}</h3>
+      </div>
+    </a>
+  </div>
+
+  <div class="pretraga">
+    <input type="text" placeholder="Pretraži usluge" [(ngModel)]="pretraga">
+    <button (click)="pretrazi()">Pretraži</button>
+    <button (click)="prikaziSve()">Prikaži sve </button>
+  </div>
+
+
+  <table>
+    <tr>
+      <th>Naziv</th>
+      <th>Tretmani</th>
+      <th>Cena</th>
+    </tr>
+    <tr *ngFor="let u of prikazaneUsluge">
+      <td><a (click)="posetiUslugu(u.idU)" routerLink="/usluga">{{u.naziv}}</a></td>
+      <td>
+          <ul>
+            <li *ngFor="let podusluga of u.podusluge">{{podusluga.naziv}}</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li *ngFor="let podusluga of u.podusluge">{{podusluga.cena}}</li>
+          </ul>
+        </td>
+    </tr>
+  </table>
+
+  <div class="sortiranje">
+    <select [(ngModel)]="sortOption">
+      <option value="nazivRastuce">Sortiraj po nazivu rastuće</option>
+      <option value="nazivOpadajuce">Sortiraj po nazivu opadajuće</option>
+
+      <option value="cenaRastuce">Sortiraj po ceni rastuće</option>
+      <option value="cenaOpadajuce">Sortiraj po ceni opadajuće</option>
+    </select>
+    <button (click)=" sortiraj()">Sortiraj</button>
+    {{porukaGreske}}
+  </div>
+
+
+
+</div>
+
+
+
+

@@ -1,0 +1,55 @@
+
+
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.info-card {
+  position: relative;
+  width: 300px;
+  height: 180px;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.info-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.card-content {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: #fff;
+  z-index: 2;
+}
+.card-content h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/*-------------------------------------------------------------*/
+.dobrodoslica{
+  text-align: center;
+  padding:20px;
+}
+

@@ -1,0 +1,19 @@
+
+
+<div class="carousel">
+    <!--<button class="arrow left" (click)="prevSlide()">‹</button>-->
+
+  <div class="viewport">
+    <div
+      class="track"
+      [style.transform]="transform"
+      [style.transition]="transitionStyle"
+    >
+      <div class="slide" *ngFor="let img of images">
+        <img [src]="img" alt="Slika" />
+      </div>
+    </div>
+  </div>
+
+  <!--<button class="arrow right" (click)="nextSlide()">›</button>-->
+</div>

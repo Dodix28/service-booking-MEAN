@@ -1,0 +1,72 @@
+<div class="radnikContainer">
+
+
+          <div class="team-section">
+  <h5>Naš tim 🌸</h5>
+  <!--💅-->
+  <div class="team-grid">
+    <div class="member" *ngFor="let kozmeticar of sviKozmeticari">
+      <img [src]=" 'http://localhost:4000/uploads/' + kozmeticar.profilna" alt="{{kozmeticar.ime}}">
+      <p>{{kozmeticar.ime}}</p>
+    </div>
+  </div>
+</div>
+
+
+  <div class="cards_container">
+    <div class="info-card">
+      <img src="pic1.jpeg" alt="ikona pozicija">
+      <h4>Broj otvorenih pozicija</h4>
+      <p>{{otvorenePozicije}}</p>
+    </div>
+    <div class="info-card">
+      <img src="radnik5.jpg" alt="ikona poslednji zaposleni">
+      <!--<h4>Poslednji zaposleni</h4>-->
+      <h4>Radnik meseca</h4>
+      <p>Jovana Stanojković</p>
+    </div>
+    <div class="info-card">
+      <img src="pic3.jpeg" alt="ikona kozmetičari">
+      <h4>Ukupan broj kozmetičara</h4>
+      <p>{{sviKozmeticari.length}}</p>
+    </div>
+</div>
+
+
+
+        <div class="registracija">
+
+          <h5 style="text-align: left;">Dodaj zaposlenog u sistem</h5>
+
+          Korisničko ime: <input type="text" name="kor_ime_reg" [(ngModel)]="kor_ime_reg"> <span class="polu-razmak"></span>
+          Lozinka: <input type="password" name="lozinka_reg" [(ngModel)]="lozinka_reg"> <span class="polu-razmak"></span>
+          Ime: <input type="text" name="ime_reg" [(ngModel)]="ime_reg"> <span class="polu-razmak"></span>
+          Prezime: <input type="text" name="prezime_reg" [(ngModel)]="prezime_reg"> <span class="polu-razmak"></span>
+          Pol:
+            <select [(ngModel)]="pol_reg" name="pol_reg">
+              <option value="M"> M </option>
+              <option value="Z"> Z </option>
+            </select>  <span class="polu-razmak"></span>
+          Adresa: <input type="text" name="adresa_reg" [(ngModel)]="adresa_reg"> <span class="polu-razmak"></span>
+          Kontakt telefon: <input type="text" name="kontakt_reg" [(ngModel)]="kontakt_reg"> <span class="polu-razmak"></span>
+          Email: <input type="text" name="mejl_reg" placeholder="nesto@primer.com" [(ngModel)]="mejl_reg"> <br/>
+          Profinla fotografija: <input type="file" id="image" (change)="selectFileZaposleni($event)" name="image"  accept=".png, .jpg"> <br/>
+          <button (click)="dodajZaposlenog()">Registruj radnika</button><br/> <span class="polu-razmak"></span>
+          <span class="greska">{{porukaReg}}</span>
+          <span class="greska">{{porukaLozinkaZ}}</span>
+          <span class="greska">{{porukaMejlZ}}</span>
+          <span class="greska">{{porukaKontaktZ}}</span>
+      </div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+

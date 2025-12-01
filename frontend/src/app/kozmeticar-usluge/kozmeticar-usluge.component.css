@@ -1,0 +1,145 @@
+.galerija-td ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 slike u redu */
+  gap: 10px;
+}
+
+.galerija-td li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.galerija-td img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.galerija-td img:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+
+.tretmani ul {
+  list-style-type: disc;   /* tačkice pored svake stavke */
+  padding-left: 20px;      /* malo uvučeno da se tačkice vide lepo */
+  margin: 0;
+}
+
+.tretmani li {
+  white-space: nowrap;     /* sprečava lomljenje teksta u dva reda */
+  margin-bottom: 5px;      /* razmak između redova */
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  gap:50px;
+  padding: 20px;
+}
+
+.nazivUsluge h6{
+  font-size: 20px;
+  font-weight: 600;
+  color: #3f2342af;
+}
+
+.nazivUsluge{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.neobavezno{
+  font-size: 12px;
+  color: #333333a4;
+}
+
+
+/* ============================= select div =============================*/
+
+.selectDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+select {
+  height: 35px;
+  width:250px;
+  padding: 5px;
+  font-size: 1rem;
+  border: 1px solid #a88785;
+  border-radius: 5px;
+  background-color: #f2eef6;
+  color: #333;
+  margin-right: 10px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+select:focus {
+   border-color: rgb(198 165 163);
+  box-shadow: 0 0 5px rgb(138 105 103);
+  outline: none;
+}
+
+
+/* ===============================================*/
+.radio-column {
+  display: flex;
+  flex-direction: column; /* sve ide u kolonu */
+  gap: 6px;               /* razmak između radio dugmića */
+  padding: 10px;
+}
+
+.radio-option {
+  white-space: nowrap;    /* tekst ne prelazi u novi red */
+  display: flex;
+  align-items: center;
+}
+
+.radio-option input {
+  margin-right: 8px;      /* razmak između dugmeta i teksta */
+}
+
+/* ================================================ */
+.galerija-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 3 slike u redu */
+  gap: 10px; /* razmak između slika */
+  padding:10px;
+}
+
+.galerija-item {
+  display: flex;
+  flex-direction: column; /* radio dugme iznad slike */
+  align-items: center;
+  white-space: nowrap; /* tekst se ne lomi */
+}
+
+.galerija-item input {
+  margin-bottom: 5px; /* razmak između radio dugmeta i slike */
+}
+
+.galerija-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover; /* slike lepo skaliraju */
+  border-radius: 5px; /* malo zaobljenje ivica */
+}
+
+
+
+
+

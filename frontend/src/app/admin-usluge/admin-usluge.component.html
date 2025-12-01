@@ -1,0 +1,45 @@
+  <!--<h5>SVE USLUGE</h5>-->
+
+   <div class="dashboard">
+  <!--<div class="info-card" style="background-image: url('assets/slike/manikir.jpg');" *ngFor="let usluga of sveUsluge">-->
+    <a class="info-card" (click)="posetiUslugu(usluga.idU)" routerLink="/usluga" [style.background-image]="'url(http://localhost:4000/uploads/usluge/' + usluga.slika + ')'" *ngFor="let usluga of sveUsluge">
+      <div class="overlay"></div>
+      <div class="card-content">
+        <h3>{{usluga.naziv}}</h3>
+      </div>
+    </a>
+</div>
+
+  <table>
+    <tr>
+      <th>Naziv</th>
+      <!--<th>Kozmetičari</th>-->
+      <th>Tretmani</th>
+      <th>Cena</th>
+      <!--<th>BLOKIRAJ PRIVREMENO</th>-->
+    </tr>
+    <tr *ngFor="let u of sveUsluge">
+      <td><a (click)="posetiUslugu(u.idU)" routerLink="/usluga">{{u.naziv}}</a></td>
+      <!--<td>
+        <ul>
+          <li *ngFor="let kozmeticar of u.kozmeticari">{{kozmeticar.ime}} {{kozmeticar.prezime}}</li>
+        </ul>
+      </td>-->
+      <td>
+        <ul>
+          <li *ngFor="let podusluga of u.podusluge">{{podusluga.naziv}}</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let podusluga of u.podusluge">{{podusluga.cena}} RSD</li>
+        </ul>
+      </td>
+      <!--<td><button>BLOKIRAJ</button></td>-->
+    </tr>
+  </table>
+
+
+
+
+

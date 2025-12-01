@@ -1,0 +1,47 @@
+.odbijTermin{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+textarea {
+  min-height: 80px;
+  min-width: 200px;
+  resize: none; 
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1.5px solid #f3b8c0; 
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  background-color: #fff7f8; 
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+/* Placeholder stil */
+textarea::placeholder {
+  color: #c9a3aa;
+  font-style: italic;
+}
+
+/* Efekat na hover */
+textarea:hover {
+  border-color: #e59ba8;
+  box-shadow: 0 0 6px rgba(229, 155, 168, 0.3);
+}
+
+/* Efekat na fokus */
+textarea:focus {
+  outline: none;
+  border-color: #d988a4;
+  box-shadow: 0 0 10px rgba(217, 136, 164, 0.4);
+  background-color: #fff;
+}
+
+button{
+  width:100px;
+  height:40px;
+}

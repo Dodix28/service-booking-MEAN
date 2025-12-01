@@ -1,0 +1,27 @@
+   <header class="main-header">
+        <div class="header-container">
+          <nav>
+            <ul class="nav-links">
+              <li><a routerLink="kozmeticarProfil">PROFIL</a></li>
+              <li><a routerLink="kozmeticarRezervacije">REZERVACIJE</a></li>
+              <li><a routerLink="kozmeticarUsluge">USLUGE</a></li>
+              <li><a routerLink="kozmeticarStatistika">STATISTIKA</a></li>
+            </ul>
+          </nav>
+          <div class="odjava">
+            <button (click)="odjava()">Odjavi se</button>
+          </div>
+        </div>
+    </header>
+
+<!--<a routerLink="kozmeticarProfil">PROFIL</a> <br/>
+<a routerLink="kozmeticarRezervacije">REZERVACIJE</a> <br/>
+<a routerLink="kozmeticarUsluge">USLUGE</a> <br/>
+<a routerLink="kozmeticarStatistika">STATISTIKA</a> <br/>
+<button (click)="odjava()">Odjavi se</button>-->
+
+
+
+  <div class="container" >
+    <router-outlet></router-outlet>
+  </div>

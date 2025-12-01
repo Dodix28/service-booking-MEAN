@@ -1,0 +1,139 @@
+.container{
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/*---------------------HEADER -------------------*/
+
+.main-header {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.15); 
+  padding: 15px 0;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.nav-links li a:hover {
+  color: #d8c5dc; 
+}
+
+
+.main-header .header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.odjava{
+  padding-left: 40px;
+}
+
+
+/*------------------------------------- TABELA -------------------------------*/
+
+table {
+  width: 60%;
+  max-width: 500px;
+  margin: 1.5rem auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+
+  background-color: #FAF6F0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Zaglavlje */
+th {
+ background-color: rgb(102 80 89);
+  color: rgb(220,220,220);
+  text-align: center;
+  font-weight: 600;
+  padding: 10px 12px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  font-family: 'Montserrat',serif;
+}
+
+/* Ćelije reda */
+td {
+  padding: 10px 14px;
+  background-color: #ffffffcc; 
+  color: #2C1810;
+  font-size: 0.95rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+}
+
+/* Parni redovi */
+table tr:nth-child(even) td {
+  background-color: #FAF6F0;
+}
+
+/* Hover efekat */
+table tr:hover td {
+ background-color: rgba(209, 170, 173, 0.3);
+  color: #2C1810;
+  transform: translateY(-2px);
+}
+
+/* Zaobljeni uglovi tabele */
+table tr:first-child th:first-child {
+  border-top-left-radius: 12px;
+}
+table tr:first-child th:last-child {
+  border-top-right-radius: 12px;
+}
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+th, td {
+  border: none;
+}
+
+th, td {
+  text-align: center;
+}

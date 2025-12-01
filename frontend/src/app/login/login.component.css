@@ -1,0 +1,309 @@
+.card-icon{
+  width: 40px;
+  height: auto;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.container {
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.naslov{
+  font-size: 55px;
+  font-family:'Playfair Display', serif;
+  font-weight: 800;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  background: linear-gradient(90deg,rgb(102 80 89) , rgb(122 100 109),rgb(102 80 89));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.5s ease;
+  cursor: default;
+}
+
+.naslov:hover {
+  text-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+  transform: scale(1.05);
+  background-position: 200% 0;
+}
+
+h5 p{
+  color:rgba(63, 46, 59, 0.6);
+  font-size: 16px;
+}
+
+th{
+  border-left: 1px solid rgba(45, 12, 53, 0.5);
+}
+td{
+  border-left: 1px solid rgba(45, 12, 53, 0.5);
+  font-family: 'Montserrat', sans-serif;;
+}
+td a:link{
+  text-decoration: none; 
+}
+td a:visited{
+  color: #6a6a6a;
+}
+.usluga{
+  font-size:16px;
+  transition: font-size 0.5s;
+}
+.usluga:hover{
+  font-size:18px;
+}
+
+
+
+/*------------------------------------------Unos podataka  --------------------------------------*/
+.podaciContainer{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  height: 50%;
+  width:100%;
+  justify-content: center;
+  align-items: center;
+
+}
+/*---------Login------------*/
+.login {
+  background-color: rgba(245, 245, 245, 0.9);
+  padding: 15px;
+  border-radius: 8px;
+  width:30%;
+
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width:350px;
+}
+
+/*-------Registracija------------*/
+
+.registracija{
+  background-color: rgba(245, 245, 245, 0.9);
+  border-radius: 8px;
+  width:40%;
+  /*max-height:auto;*/
+  /*margin: 0 auto;*/
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  margin-left:10px;
+  margin-right:10px;
+  padding-top:15px;
+  padding-bottom:15px;
+
+  min-width:350px;
+
+}
+
+.registrujse_ovde{
+  font-size: 18px;
+  padding-top:20px;
+  margin-bottom: 0;
+}
+
+.registrujse_ovde a{
+  cursor: pointer;
+  color:rgb(44 24 16);
+  transition: 0.5s ease;
+}
+.registrujse_ovde a:hover{
+  color:rgb(94 74 66);
+  font-size: 20px;
+}
+.naCekanju{
+  font-size: 18px;
+}
+.tabelaUsluga{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*------------------------------ neregistrovani korisnici- ---------------------*/
+.divNeregistrovani table td:hover{
+  background-color: #ffffffcc;
+}
+
+.pretragaDiv input[type="text"]{
+  padding: 5px;
+  font-size: 0.9rem;
+  border: 1px solid #a88785;
+  border-radius: 7px;
+  background-color: #eef6ee;
+  color: #333;
+  margin-right: 10px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  height: 30px;
+  width:250px;
+}
+
+.pretragaDiv button{
+
+ background-color: rgb(179 140 143);
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: background-color 0.3s;
+}
+.pretragaDiv button:hover{
+   background-color: rgb(199 160 163);
+}
+
+
+.name-and-logo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+}
+
+
+/*---------------------HEADER -------------------*/
+.main-header {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.15); 
+  padding: 15px 0;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #d8c5dc;
+}
+
+/*---------------------------tabela usluga-----------------------------*/
+.tabelaUsluga{
+  margin-top:50px;
+  margin-bottom:50px;
+}
+.tretman{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+}
+.asortiman{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.linija {
+  border-top: 1px dashed #ccc; 
+  width: 100%;                
+  margin: 10px 0;          
+  border-top-color: #77747498;
+  margin-left:20px;
+  margin-right:20px;
+  flex-grow: 1;
+  align-self: center;
+}
+
+.cena{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 18px;
+  color: #482b4bd5;
+}
+.usluga{
+  font-size: 20px;
+}
+.usluga:hover{
+  font-size: 22px;
+}
+.tretmani_usluge{
+  display: flex;
+  flex-direction: column;
+}
+.podusluge{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: 16px;
+  color:#3f263c99;
+  flex-wrap: wrap;
+}
+
+.tabelaTretmana{
+  width: 70vw; 
+  font-family: "Montserrat", sans-serif;
+}
+
+/*----------------------------------------sortiranje-------------------------------------*/
+
+.sortirajDiv{
+  padding-right:30px;
+  padding-bottom:15px;
+  padding-top:15px;
+  display: flex;
+  flex-direction:row ;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapperDiv button{
+  background-color: rgb(179 140 143);
+  color: #ffffff;
+  border: none;
+  padding: 5px 40px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: background-color 0.3s;
+}
+
+.wrapperDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+
+
+

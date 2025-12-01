@@ -1,0 +1,29 @@
+
+  <header class="main-header">
+        <div class="header-container">
+          <nav>
+            <ul class="nav-links">
+              <li><a routerLink="klijentProfil">PROFIL</a></li>
+              <li><a routerLink="klijentRezervacije">REZERVACIJE</a></li>
+              <li><a routerLink="klijentUsluge">USLUGE</a></li>
+            </ul>
+          </nav>
+          <div class="odjava">
+            <button (click)="odjava()">Odjavi se</button>
+          </div>
+        </div>
+    </header>
+
+
+  <!--<div class="nav">
+    <a routerLink="klijentProfil" routerLinkActive="active">PROFIL</a> <br/>
+    <a routerLink="klijentUsluge" routerLinkActive="active">USLUGE</a> <br/>
+    <a routerLink="klijentRezervacije" routerLinkActive="active">REZERVACIJE</a> <br/>
+    <button (click)="odjava()">Odjavi se</button>
+  </div>
+
+  <hr/>-->
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>

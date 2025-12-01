@@ -1,0 +1,193 @@
+
+
+<div class="container">
+
+  <table>
+  <tr>
+    <th>ID</th>
+    <th>Naziv</th>
+    <th>Tretmani</th>
+    <th>Cena</th>
+    <th>Galerija</th>
+    <th>Ažuriraj</th>
+  </tr>
+  <tr *ngFor="let u of mojeUsluge">
+    <th>{{u.idU}}</th>
+    <td>{{u.naziv}}</td>
+    <td class="tretmani">
+      <ul>
+        <li *ngFor="let podusluga of u.podusluge">{{podusluga.naziv}}</li>
+      </ul>
+    </td>
+    <td class="tretmani">
+      <ul>
+        <li *ngFor="let podusluga of u.podusluge">{{podusluga.cena}}</li>
+      </ul>
+    </td>
+
+      <td class="galerija-td">
+        <ul>
+          <li *ngFor="let slika of u.galerija">
+            <img [src]=" 'http://localhost:4000/uploads/podusluge/' + slika" height="100px" width="100px" alt="Profilna">
+          </li>
+        </ul>
+      </td>
+
+
+      <th>
+        <button (click)="idiNaAzuriraj(u); scrollTo('ciljniDiv'); " >Ažuriraj</button>
+      </th>
+  </tr>
+</table>
+
+
+<div id="ciljniDiv" *ngIf="prikaziFormuZaAzuriranje">
+  <span class="nazivUsluge">
+    <h5>🌸 Ažuriraj uslugu 🌸</h5>
+    <h6>{{odabranaUsluga.naziv}}</h6>
+  </span>
+
+
+  <div class="selectDiv">
+    <select (change)="odaberiOpciju($event)">
+      <option value="" selected disabled>Odaberite akciju</option> <!-- neutralna -->
+      <option value="dodaj">Dodaj</option>
+      <option value="obrisi">Obriši</option>
+      <option value="azuriraj">Ažuriraj</option>
+    </select>
+  </div>
+
+
+  <div class="tabelaIzmeni" *ngIf="izmeniFlag">
+
+    <table>
+      <tr>
+        <th>Odaberi tretman za izmenu</th>
+
+        <div class="radio-column">
+          <label *ngFor="let p of odabranaUsluga.podusluge" class="radio-option">
+            <input
+              type="radio"
+              name="ime"
+              [(ngModel)]="izmeniTretman"
+              [value]="p"
+            />
+            {{ p.naziv }}
+          </label>
+        </div>
+
+      </tr>
+      <tr>
+        <th>Izmeni naziv tretmana</th>
+        <td><input type="text" name="ime" placeholder="Novo ime tretmana" [(ngModel)]="izmeniTretman_naziv"></td>
+      </tr>
+       <tr>
+        <th>Izmeni cenu</th>
+        <td><input type="number" name="ime" placeholder="Cena tretmana" [(ngModel)]="izmeniTretman_cena"></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td>
+          <button (click)="azuriraj()">Ažuriraj</button>
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td>
+          <span class="greska">{{porukaIzmeni}}</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+   <div class="tabelaDodaj" *ngIf="dodajFlag">
+    <table>
+      <tr>
+        <th>Dodaj tretman</th>
+        <td><input type="text" name="ime" placeholder="Naziv tretmana" [(ngModel)]="noviTretman_naziv"></td>
+      </tr>
+
+      <tr>
+        <th>Dodaj opis</th>
+        <td><input type="text" name="ime" placeholder="Opis tretmana" [(ngModel)]="noviTretman_opis"></td>
+      </tr>
+      <tr>
+        <th>Dodaj cenu</th>
+        <td><input type="number" name="ime"  [(ngModel)]="noviTretman_cena"></td>
+      </tr>
+      <tr>
+        <th>Dodaj fotografiju</th>
+        <td>
+          <input type="file" id="image" (change)="selectFile($event)" name="image"  accept=".png, .jpg">
+          <span class="neobavezno"> *Fotografija nije obavezna* </span>
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td>
+          <button (click)="dodajTretman()">Dodaj</button>
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td>
+          <span class="greska">{{porukaDodaj}}</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+   <div class="tabelaObriši" *ngIf="obrisiFlag">
+    <table>
+      <tr>
+        <th>Odaberi tretman</th>
+        <div class="radio-column">
+          <label *ngFor="let p of odabranaUsluga.podusluge" class="radio-option">
+            <input
+              type="radio"
+              name="ime"
+              [(ngModel)]="obrisiTretman"
+              [value]="p"
+            />
+            {{ p.naziv }}
+          </label>
+        </div>
+      </tr>
+
+      <tr>
+        <th>Odaberi fotografiju</th>
+        <div class="galerija-grid">
+          <label *ngFor="let p of odabranaUsluga.galerija" class="radio-option">
+            <input
+              type="radio"
+              name="ime"
+              [(ngModel)]="obrisiTretman_slika"
+              [value]="p"
+            />
+            <img [src]=" 'http://localhost:4000/uploads/podusluge/' + p" height="100px" width="100px" alt="Profilna">
+          </label>
+        </div>
+      </tr>
+      <tr>
+        <th></th>
+        <td>
+          <button (click)="azuriraj()">Obriši</button>
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td>
+          <span class="greska">{{porukaObrisi}}</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+
+
+</div>
+
+
+
+

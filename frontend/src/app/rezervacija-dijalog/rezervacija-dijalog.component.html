@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Rezervacija</h2>
+<mat-dialog-content>
+  <p><strong>Tretman:</strong> {{data.nazivPodusluge}}</p>
+  <p><strong>Klijent:</strong> {{data.klijent}}</p>
+  <p><strong>Datum:</strong> {{data.datumZakazivanja}}</p>
+  <p><strong>Status:</strong> {{data.status}}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button color="primary" (click)="potvrdi()">Potvrdi</button>
+  <button mat-button color="warn" (click)="odbij()">Odbij</button>
+  <button mat-button (click)="zatvori()">Zatvori</button>
+</mat-dialog-actions>
+

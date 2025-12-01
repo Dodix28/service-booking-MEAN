@@ -1,0 +1,34 @@
+
+      <header class="main-header">
+        <div class="header-container">
+          <nav>
+            <ul class="nav-links">
+              <li><a routerLink="adminPocetna">Početna</a></li>
+              <li><a routerLink="adminZahtevi">Zahtevi</a></li>
+              <li><a routerLink="adminKozmeticari">Kozmetičari</a></li>
+              <li><a routerLink="adminKlijenti">Klijenti</a></li>
+              <li><a routerLink="adminUsluge">Usluge</a></li>
+              <li><a routerLink="zaposli">Zapošljavanje</a></li>
+
+            </ul>
+          </nav>
+          <div class="odjava">
+            <button (click)="odjaviSe()">Odjavi se</button>
+          </div>
+        </div>
+    </header>
+
+
+
+
+
+    <div class="container">
+
+
+       <div class="content">
+          <router-outlet></router-outlet>
+        </div>
+
+    </div>
+
+

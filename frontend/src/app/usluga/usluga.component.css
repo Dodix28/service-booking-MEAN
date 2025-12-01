@@ -1,0 +1,298 @@
+
+.stepsContainer {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.zakazivanje {
+  font-size: 25px;
+}
+
+mat-form-field {
+  width: 100%;
+  min-height: 80px; 
+  display: block;
+}
+
+mat-form-field .mat-mdc-form-field-wrapper {
+  min-height: 60px;
+}
+
+mat-form-field .mat-mdc-form-field-label {
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+
+mat-radio-group, mat-checkbox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.step-buttons {
+  margin-top: 20px;
+}
+
+.step-buttons button {
+  margin-right: 10px;
+}
+
+.review {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.mat-datepicker-toggle {
+  vertical-align: middle;
+}
+
+mat-form-field input,
+mat-form-field textarea {
+  height: 36px;
+  font-size: 16px;
+  padding: 0 12px;
+}
+
+
+.container_usluga {
+ padding-top: 80px;
+ font-family: 'Montserrat', sans-serif;
+ color: #333;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+p {
+   font-family: 'Montserrat', 'Segoe UI Emoji', 'Noto Color Emoji', 'Apple Color Emoji', sans-serif;
+  font-size: 18px;
+  color:rgba(17, 3, 18, 0.784);
+}
+
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 35px;
+}
+
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+
+  color: rgb(102 80 89);
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Opis usluge */
+.opis {
+  background: #ffffff98;
+  border-radius: 20px;
+  max-width: 850px;
+  margin: 0 auto 40px auto;
+  padding: 35px 40px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  line-height: 1.8;
+  font-size: 18px;
+  text-align: justify;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.opis:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Trajanje usluge */
+.trajanje {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: #4c704b;
+}
+
+.div_ispod {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Galerija kao grid u pozadini */
+.galerija {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.galerija-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.galerija-item img:hover {
+  transform: scale(1.05);
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  inset: 0; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.opis-overlay p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: whitesmoke;
+}
+
+.pogledaj-btn {
+  background-color: #f9c5c5; 
+  color: #4b2e2b;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.pogledaj-btn:hover {
+  transform: scale(1.05);
+  background-color: #eaa0a0;
+}
+
+/* Naslov podusluga */
+.container_usluga h6 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+  color: #3b3b3b;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+
+/*---------------------HEADER -------------------*/
+.main-header {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.15); 
+  padding: 15px 0;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #d8c5dc; 
+}
+
+
+
+/*---------------------------tabela usluga-----------------------------*/
+.tabelaUsluga{
+  margin-top:50px;
+  margin-bottom:50px;
+}
+.tretman{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+}
+.asortiman{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.linija {
+  border-top: 1px dashed #ccc; 
+  width: 100%;                 
+  margin: 10px 0;            
+  border-top-color: #77747498;
+  margin-left:20px;
+  margin-right:20px;
+  flex-grow: 1;
+  align-self: center;
+}
+
+.cena{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 18px;
+  color: #482b4bd5;
+}
+.usluga{
+  font-size: 20px;
+}
+.usluga:hover{
+  font-size: 22px;
+}
+.tretmani_usluge{
+  display: flex;
+  flex-direction: column;
+}
+.podusluge{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: 16px;
+  color:#3f263c99;
+  flex-wrap: wrap;
+}
+
+.tabelaTretmana{
+  width: 70vw; 
+  font-family: "Montserrat", sans-serif;
+}
+

@@ -1,0 +1,446 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  /*background: linear-gradient(to bottom, #EDE0D4, #ffffff);*/
+  /*font-family: 'Poppins', sans-serif;*/
+  font-family: 'Montserrat', 'Playfair Display', 'Segoe UI Emoji', 'Noto Color Emoji', 'Apple Color Emoji', sans-serif;
+  margin: 0;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /*background-color: #EDE0D4;*/
+  background-image: url('/background7.png');;
+  color: #2C1810;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+html{
+  height: 100%;
+}
+
+.greska {
+  color: #d9534f;
+  font-size: 16px;
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+}
+
+.emoji{
+  font-family: 'Segoe UI Emoji', 'Noto Color Emoji', 'Apple Color Emoji', sans-serif;
+}
+
+.polu-razmak {
+  display: block;
+  height: 0.5em; /* pola visine reda */
+}
+
+
+/*------------------------------------- TABELA -------------------------------*/
+
+table {
+  width: 60%;
+  max-width: 500px;
+  margin: 1.5rem auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  /*font-family: "Poppins", sans-serif;*/
+
+  background-color: #FAF6F0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Zaglavlje */
+th {
+ /* background-color: #B08968; /* karamel akcenat */
+ background-color: rgb(102 80 89);
+  color: rgb(220,220,220);
+  text-align: center;
+  font-weight: 600;
+  padding: 10px 12px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  font-family: 'Montserrat',serif;
+
+  /*font-family: 'Playfair Display', serif;*/
+}
+
+/* Ćelije reda */
+td {
+  padding: 10px 14px;
+  background-color: #ffffffcc; /* mekša bela */
+  color: #2C1810;
+  font-size: 0.95rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+}
+
+/* Parni redovi */
+table tr:nth-child(even) td {
+  background-color: #FAF6F0;
+}
+
+/* Hover efekat */
+table tr:hover td {
+ /*background-color: #D4A373; /* diskretni zlatni akcenat */
+ background-color: rgba(209, 170, 173, 0.3);
+  color: #2C1810;
+  transform: translateY(-2px);
+  /*box-shadow: 0 4px 12px rgba(0,0,0,0.08);*/
+}
+
+/* Zaobljeni uglovi tabele */
+table tr:first-child th:first-child {
+  border-top-left-radius: 12px;
+}
+table tr:first-child th:last-child {
+  border-top-right-radius: 12px;
+}
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+/* Bez linija */
+th, td {
+  border: none;
+}
+
+/* Dodatna estetika */
+th, td {
+  text-align: center;
+}
+
+
+/*---------------------HEADER -------------------*/
+.main-header {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.15); /* ili boja po želji */
+  padding: 15px 0;
+  position: fixed; /* ostaje na vrhu prilikom skrolovanja */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.nav-links li a:hover {
+  color: #d8c5dc; /* promena boje na hover */
+}
+
+
+
+
+/* ======================= NAVIGACIJA ====================== */
+.nav {
+  /*background-color: #7F5539;*/
+  background-color: rgba(0, 0, 0, 0.3); /* primarna */;
+  color: #FAF6F0;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.nav a {
+  color: #FAF6F0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #D4A373; /* sekundarna */
+}
+
+/* Dugme odjave */
+.nav button {
+  border: none;
+  background-color: #B08968;
+  color: #FAF6F0;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s;
+  margin-left: auto; /* dugme ide desno */
+}
+
+.nav button:hover {
+   background-color: #D4A373;
+  color: #2C1810;
+}
+
+/* Aktivni link */
+.nav a.active {
+  color: #D4A373; /* sekundarna boja */
+  border-bottom: 2px solid #D4A373;
+  padding-bottom: 2px;
+}
+
+
+/* ===== SADRŽAJ ISPOD NAVIGACIJE ===== */
+.content {
+  padding: 2rem;
+}
+
+
+
+/*-----------------------------------INPUTI-----------------------------------*/
+input[type="file"] {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  background-color: rgb(221 195 190);
+  border: 1px solid #a88785;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  background-color: rgb(221 195 190);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 12px;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+}
+
+input[type="file"]:hover {
+  background-color: (201 175 170);
+}
+
+input[type="text"] {
+  padding: 3px;
+  font-size: 0.8rem;
+  border: 1px solid #a88785;
+  border-radius: 5px;
+  background-color: #f2eef6;
+  color: #333;
+  margin-right: 10px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  height: 30px;
+  width:250px;
+}
+input[type="password"] {
+  padding: 3px;
+  font-size: 1rem;
+  border: 1px solid #a88785;
+  border-radius: 5px;
+  background-color: #f2eef6;
+  color: #333;
+  margin-right: 10px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  height: 30px;
+  width:250px;
+}
+
+input[type="text"]:focus {
+  border-color: rgb(198 165 163);
+  box-shadow: 0 0 5px rgb(138 105 103);
+  outline: none;
+}
+select {
+  height: 30px;
+  width:250px;
+  padding: 5px;
+  font-size: 1rem;
+  border: 1px solid #a88785;
+  border-radius: 5px;
+  background-color: #f2eef6;
+  color: #333;
+  margin-right: 10px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+select:focus {
+   border-color: rgb(198 165 163);
+  box-shadow: 0 0 5px rgb(138 105 103);
+  outline: none;
+}
+
+/*TAMNIJE DUGME*/
+.tamnije{
+  padding: 8px 12px;
+  background-color: #4c704b; /* Tamnozelena boja dugmeta */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.tamnije :hover{
+  background-color: #6b8f6a;
+}
+
+input[type="date"] {
+  padding: 3px;
+  font-size: 0.8rem;
+  border: 1px solid #4c704b;
+  border-radius: 5px;
+  background-color: #eef6ee;
+  color: #333;
+  margin-right: 10px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  height: 25px;
+  width: 250px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input[type="date"]::-webkit-input-placeholder {
+  color: #7d7d7d;
+}
+
+input[type="date"]::-moz-placeholder {
+  color: #7d7d7d;
+}
+
+input[type="date"]:-ms-input-placeholder {
+  color: #7d7d7d;
+}
+
+/*----------------------------------- BUTTON ---------------------------------*/
+button {
+  /* background-color: #c9aeb0; */
+ background-color: rgb(179 140 143);
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: rgb(199 160 163);
+}
+
+button:active {
+  background-color: #9f7376; /* Još tamnija zelena za klik */
+}
+
+
+
+/*---------------------------------------- NASLOVI-----------------------------------*/
+h5 {
+  color: rgb(102 80 89);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+}
+
+
+/*-----------------------------LINKOVI------------------------------------------*/
+a{
+  color: #482b4bd5;                /* osnovna boja teksta */
+  text-decoration: none;      /* uklanja podvlačenje */
+  font-weight: 600;           /* malo deblji tekst */
+  transition: color 0.3s ease;
+  text-decoration-line: none !important;
+}
+
+a:hover {
+  color: #664f69e7;             /* moderna, suptilna promena boje */
+  text-decoration-line: none !important;
+}
+
+
+/*============================KALENDAR=======================*/
+
+/*deo kao div u kome se nalazi kalendar - fc*/
+.fc {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.fc-toolbar-title {
+  font-size: 1.5rem;
+  color: #6f4b70;
+  font-weight: 600;
+}
+
+.fc-daygrid-day:hover {
+ background-color: #eaf3ea;
+}
+
+.fc-day-today {
+  background-color: #e6d1e6 !important;
+  font-weight: bold;
+  border: 1px solid #704b6a;
+}
+.fc td:hover{
+  background-color: white;
+}
+
+.fc td{
+ padding: 0;
+}
+
+.fc th{
+ background-color: rgba(165, 107, 170, 0.432);
+}
+
+
+/*event - ono sto se nalazi unutar dana -zakazani sastanak itd .fc-event*/
+.fc-event {
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  padding: 3px 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+.fc-event:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+.fc-event-title {
+  font-size: 12px;      /* manji tekst */
+  white-space: normal;  /* da prelama redove */
+  line-height: 1.2;     /* da ne zauzima previše visine */
+}

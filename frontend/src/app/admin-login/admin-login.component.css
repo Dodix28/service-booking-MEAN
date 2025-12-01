@@ -1,0 +1,47 @@
+.name-and-logo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.naslov{
+  font-size: 55px;
+  font-family:'Playfair Display', serif;
+  font-weight: 800;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  background: linear-gradient(90deg,rgb(102 80 89) , rgb(122 100 109),rgb(102 80 89));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.5s ease;
+  cursor: default;
+
+}
+.naslov:hover {
+  text-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+  transform: scale(1.05);
+  background-position: 200% 0;
+}
+
+h5 p{
+  color:rgba(63, 46, 59, 0.6);
+  font-size: 16px;
+}
+
+/*---------Login------------*/
+.login {
+  background-color: rgba(245, 245, 245, 0.9);
+  padding: 15px;
+  border-radius: 8px;
+  width:30%;
+
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width:350px;
+}
+

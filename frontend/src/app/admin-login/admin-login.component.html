@@ -1,0 +1,15 @@
+  <div class="name-and-logo">
+      <img src="/logo/logo8.png" style="width:100px; height:100px">
+    <span class="naslov">MD Glam Studio </span>
+  </div>
+
+  <div class="login">
+    <h5>ULOGUJTE SE <br/>
+      <p>administrator</p>
+    </h5>
+    Korisničko ime: <input type="text" name ="username" [(ngModel)]="kor_ime"><br/>
+    Lozinka: <input type="password" name="password" [(ngModel)]="lozinka"><br/>
+    <button (click)="login()">Uloguj se!</button><br/>
+    <span class="greska">{{porukaLogin}}</span>
+  </div>
+

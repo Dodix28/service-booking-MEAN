@@ -1,0 +1,17 @@
+<div class="pagination-container">
+  <label>Redova po strani: &nbsp;</label>
+  <select (change)="promeniRedovaPoStrani($event)">
+    <option value="1" [selected]="redovaPoStrani==1">1</option>
+    <option value="2" [selected]="redovaPoStrani==2">2</option>
+    <option value="5" [selected]="redovaPoStrani==5">5</option>
+    <option value="10" [selected]="redovaPoStrani==10">10</option>
+  </select>
+
+  <div class="pagination">
+    <button *ngFor="let str of generisiStrane()"
+            (click)="idiNaStranu(str)"
+            [class.active]="trenutnaStrana==str">
+      {{str}}
+    </button>
+  </div>
+</div>

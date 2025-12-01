@@ -1,0 +1,41 @@
+<h5>Moje neobradjene rezervacije</h5>
+
+<table>
+  <tr>
+    <th>Datum</th>
+    <th>Vreme</th>
+    <th>Cena</th>
+    <th>Napomena</th>
+    <th>Kozmetičar</th>
+    <th>Status</th>
+    <th>Tretman</th>
+    <th>Prihvati</th>
+    <th>Odbij</th>
+
+  </tr>
+  <tr *ngFor="let r of prikazaneRezervacije">
+    <td>{{r.datumZakazivanja}}</td>
+    <td>{{r.vreme}}</td>
+    <td>{{r.cena}}</td>
+    <td>{{r.napomena}}</td>
+    <td>{{r.kozmeticar}}</td>
+    <td>{{r.status}}</td>
+    <td>{{r.nazivPodusluge}}</td>
+    <td><button (click)="prihvati(r)">Prihvati</button></td>
+    <td>
+       <div class="odbijTermin">
+        <textarea name="komentar" placeholder="Unesite komentar!"[(ngModel)]="komentar" ></textarea>
+        <button (click)="odbij(r)">Odbij</button>
+        <span class="greska">{{poruka}}</span>
+      </div>
+    </td>
+  </tr>
+</table>
+
+  <!-- Pagination komponenta -->
+<app-tabela [sviPodaci]="mojeRezervacije_na_cekanju"
+                (promenjeniPodaci)="prikazaneRezervacije = $event">
+</app-tabela>
+
+<full-calendar [options]="calendarOptions" (eventClick)="onEventClick($event)"></full-calendar>
+

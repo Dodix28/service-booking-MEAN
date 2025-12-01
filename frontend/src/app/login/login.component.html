@@ -1,0 +1,160 @@
+
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8">
+
+
+</head>
+<body>
+
+  <div class="container" id="pocetniDiv">
+
+    <header class="main-header">
+      <nav>
+        <ul class="nav-links">
+          <li><a routerLink="/" (click)="scrollTo('pocetniDiv')">Početna</a></li>
+          <li><a routerLink="/usluge" (click)="scrollTo('ciljniDiv')" >Usluge</a></li>
+          <li><a routerLink="/kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+
+    <div class="name-and-logo">
+      <img src="/logo/logo8.png" style="width:100px; height:100px">
+    <span class="naslov">MD Glam Studio </span>
+    </div>
+
+
+
+     <app-slider  [images]="['/slider/hair8.png', '/slider/massage8.png' ,  '/slider/pedicure8.png', '/slider/manicure8.png', '/slider/facial8.png',  '/slider/madero8.png',]"></app-slider>
+
+
+    <div class="divNeregistrovani">
+
+      <table style = "max-width: 500px;">
+        <tr>
+          <th>Ukupan broj registrovanih kozmeticara:</th>
+          <th>Ukupan broj registrovanih korisnika</th>
+          <th>Broj rezervacija u proteklih 24h:</th>
+          <th>Broj rezervacija u proteklih 7 dana:</th>
+          <th>Broj rezervacija u proteklih 30 dana:</th>
+        </tr>
+        <tr>
+          <td>{{sviKozmeticari.length}}</td>
+          <td>{{sviKlijenti.length}}</td>
+          <td>10</td>
+          <td>10</td>
+          <td>10</td>
+        </tr>
+      </table>
+
+    </div>
+
+    <div class="tabelaUsluga" id="ciljniDiv">
+
+      <div class="tabelaTretmana">
+        <h5>Tretmani & Cene</h5>
+        <div *ngFor="let u of prikazaneUsluge" class="tretman">
+          <div class="asortiman">
+            <div class="usluga"><a class="modern-link" (click)="posetiUslugu(u.idU)" routerLink="/usluga">{{u.naziv}}</a></div>
+            <div class="linija"></div>
+            <div class="cena">već od {{u.cena}} RSD</div>
+          </div>
+          <div class="podusluge">
+            <div *ngFor="let podusluga of u.podusluge">{{podusluga.naziv}}, &nbsp; </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapperDiv">
+        <div class="sortirajDiv">
+          <select [(ngModel)]="sortOption">
+            <option value="nazivRastuce">Sortiraj po nazivu rastuće</option>
+            <option value="nazivOpadajuce">Sortiraj po nazivu opadajuće</option>
+
+            <option value="cenaRastuce">Sortiraj po ceni rastuće</option>
+            <option value="cenaOpadajuce">Sortiraj po ceni opadajuće</option>
+          </select>
+          <button (click)=" sortiraj()">Sortiraj</button>
+        </div>
+        {{porukaGreske}}
+      </div>
+
+      <div class="wrapperDiv">
+         <div class="pretragaDiv">
+          <input type="text" placeholder="Pretraži tretmane" [(ngModel)]="pretraga">
+          <button (click)="pretrazi()">Pretraži</button>
+          <button (click)="prikaziSve()">Prikaži sve </button>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+    <div class="podaciContainer">
+      <p class="registrujse_ovde" *ngIf="registracijaFlag" > Imate nalog? Ulogujte se <a (click)="postaviFlag(false)">ovde</a> 🌸</p>
+
+      <div class="login" *ngIf="registracijaFlag==false">
+        <h5>ULOGUJTE SE <br/>
+          <p>klijent/kozmetičar</p>
+        </h5>
+          Korisničko ime: <input type="text" name ="username" [(ngModel)]="kor_ime"><br/>
+          Lozinka: <input type="password" name="password" [(ngModel)]="lozinka"><br/>
+          <button (click)="login()">Uloguj se!</button><br/>
+          <span class="greska">{{porukaLogin}}</span>
+      </div>
+
+      <p class="registrujse_ovde" *ngIf="registracijaFlag==false" > Nemate nalog? Registrujte se <a (click)="postaviFlag(true)">ovde</a> 🌸</p>
+
+  <hr/>
+      <div class="registracija" *ngIf="registracijaFlag">
+        <h5>
+          REGISTRUJTE SE <br/>
+          <p>(klijent/kozmeticar)</p>
+        </h5>
+          Korisničko ime: <input type="text" name="kor_ime_reg" [(ngModel)]="kor_ime_reg"><br/>
+          Lozinka: <input type="password" name="lozinka_reg" [(ngModel)]="lozinka_reg"><br/>
+          Ime: <input type="text" name="ime_reg" [(ngModel)]="ime_reg"><br/>
+          Prezime: <input type="text" name="prezime_reg" [(ngModel)]="prezime_reg"><br/>
+          Pol:
+            <select [(ngModel)]="pol_reg" name="pol_reg">
+              <option value="M"> M </option>
+              <option value="Z"> Z </option>
+            </select><br/>
+          Adresa: <input type="text" name="adresa_reg" [(ngModel)]="adresa_reg"><br/>
+          Kontakt telefon: <input type="text" name="kontakt_reg" [(ngModel)]="kontakt_reg"><br/>
+          Email: <input type="text" name="mejl_reg" placeholder="nesto@primer.com" [(ngModel)]="mejl_reg"><br/>
+          <!--Kreditna kartica: <input type="text" name="kartica_reg" placeholder="Unesite broj kartice" (input)="cardImage()" [(ngModel)]="kartica_reg">-->
+              <img *ngIf="cardType === 'Diners'" src="/dinersCard.png" alt="Diners Card Icon" class="card-icon">
+                <img *ngIf="cardType === 'MasterCard'" src="/masterCard.png" alt="MasterCard Icon" class="card-icon">
+                <img *ngIf="cardType === 'Visa'" src="/visaCard.png" alt="Visa Card Icon" class="card-icon"> <br/>
+          Profinla fotografija: <input type="file" id="image" (change)="selectFile($event)" name="image"  accept=".png, .jpg"> <br/>
+          <button (click)="registracija()">Registruj se!</button><br/>
+
+                <span class='greska'>{{porukaReg}}</span> <br/>
+                <span class='greska'>{{porukaLozinka}}</span> <br/>
+                <span class='greska'>{{porukaMejl}}</span> <br/>
+                <span class='greska'>{{porukaKontakt}}</span> <br/>
+                <!--<span class='greska'>{{porukaKartica}}</span> <br/>-->
+      </div>
+      <div class="naCekanju" *ngIf="naCekanju">
+        <p>Vaš zahtev je na poslat i uskoro će biti obrađen. Hvala na strpljenju! ✨</p>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+</body>
+
+
+
+
